@@ -1,1 +1,36 @@
-Welcome to the rest-api wiki!
+= Huami Web API Documents for Developers
+:toc:
+:toc-placement!:
+:sectnums:
+:sectnumlevels: 3
+
+http://www.huami.com/[Huami] provides Web API for accessing user activity data tracked with Huami wearable-devices. Anyone can develop an application to access user's data on their behalf, as long as the user has granted consent to do so.
+
+toc::[]
+
+== Overview
+
+== App Registration
+
+=== Scopes
+
+== Authentication
+
+=== Obtaining User Consent and Tokens - Native Mobile App
+
+=== Obtaining User Consent and Tokens - Web Site
+==== Huami OAuth Error Code
+
+=== Making Requests
+
+=== Refreshing Tokens
+
+== Accessing Data
+
+=== User
+
+=== Activity
+
+=== Sleep
+
+== Subscriptions
