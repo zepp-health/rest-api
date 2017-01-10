@@ -39,6 +39,39 @@ Redirect URIs are a critical part of the OAuth flow. After a user successfully a
 
 ==== Huami OAuth Error Code
 
+|====
+|Http Status|code|message
+
+|401
+|0
+|invalid token
+
+|400
+|-1001
+|Error parameter
+
+|400
+|-1002
+|Missing required parameter
+
+|500
+|-1003
+|Internal server error
+
+|400
+|-1004
+|Invalid parameter
+
+|404
+|-2001
+|Not found
+
+|400
+|-2002
+|Bad request
+
+|====
+
 === Making Requests
 
 To make a request to the HuaMi Data API using OAuth 2.0, simply add an Authorization header to the HTTP request with the user's access token.
