@@ -3,6 +3,9 @@ Huami Tech <develop@huami.com>
 :toc:
 :toclevels: 2
 :toc-placement!:
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
 
 http://www.huami.com/[Huami] provides Web API for accessing user activity data tracked with Huami wearable-devices. Anyone can develop an application to access user's data on their behalf, as long as the user has granted consent to do so.
 
