@@ -22,11 +22,9 @@ Typically you need to provide information about an application such as:
 . A link to the application’s privacy policy
 . A list of redirect URIs
 
-*What is the redirectURI?*
+=== Redirect URIs
 
-****
 Redirect URIs are a critical part of the OAuth flow. After a user successfully authorizes an application, the authorization server will redirect the user back to the application with either an authorization code or access token in the URL. Because the redirect URI will contain sensitive information, it is critical that the service doesn’t redirect the user to arbitrary locations
-****
 
 === Scopes
 
