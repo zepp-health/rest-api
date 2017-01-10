@@ -44,6 +44,7 @@ To make a request to the HuaMi Data API using OAuth 2.0, simply add an Authoriza
 
 *Example Request:*
 
+[source,http,options="nowrap"]
 ----
 GET https://api-open.huami.com/users/-/profile
 Authorization: Bearer TAQABAAAAAJ95lT4WrRdWtG3hog/0QvXTnUpL3FFxKOLBgm4JjIKJbSozXYxtltsQzBz0Z9PXDiIKBUOLMfjWX5Je6tGEdXLeaYeCEVS0dVYMWG+p+Y7avcVe0SWY4jITNGfuq/tlNLK9cACSkIW/L6Mnb9YNp4CzQDo7dU9WrxK87aOJ7gAlE4leZKeCM3+xLY3zRs3BGZEwrsCmEMqPr14rrD2KHny6aD2UvGQfXdVGVExe8jRbMLw2L2KdRWrxEW7vZRzXdw==
