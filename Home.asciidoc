@@ -12,6 +12,22 @@ toc::[]
 
 == 2. App Registration
 
+Typically you need to provide information about an application such as:
+
+. Application name
+. An icon for the application
+
+. URL to the application’s home page
+. A short description of the application
+. A link to the application’s privacy policy
+. A list of redirect URIs
+
+*What is the redirectURI?*
+
+****
+Redirect URIs are a critical part of the OAuth flow. After a user successfully authorizes an application, the authorization server will redirect the user back to the application with either an authorization code or access token in the URL. Because the redirect URI will contain sensitive information, it is critical that the service doesn’t redirect the user to arbitrary locations
+****
+
 === Scopes
 
 == 3. Authentication
@@ -24,7 +40,100 @@ toc::[]
 
 === Making Requests
 
+To make a request to the HuaMi Data API using OAuth 2.0, simply add an Authorization header to the HTTP request with the user's access token.
+
+*Example Request:*
+
+[source,http,options="nowrap"]
+----
+GET https://api-open.huami.com/users/-/profile
+Authorization: Bearer TAQABAAAAAJ95lT4WrRdWtG3hog/0QvXTnUpL3FFxKOLBgm4JjIKJbSozXYxtltsQzBz0Z9PXDiIKBUOLMfjWX5Je6tGEdXLeaYeCEVS0dVYMWG+p+Y7avcVe0SWY4jITNGfuq/tlNLK9cACSkIW/L6Mnb9YNp4CzQDo7dU9WrxK87aOJ7gAlE4leZKeCM3+xLY3zRs3BGZEwrsCmEMqPr14rrD2KHny6aD2UvGQfXdVGVExe8jRbMLw2L2KdRWrxEW7vZRzXdw==
+----
+
 === Refreshing Tokens
+
+*Request structure*
+
+[source,http,options="nowrap"]
+----
+POST /oauth2/refresh_token HTTP/1.1
+Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+Host: account.huami.com
+
+client_id=2882303761517363510&client_secret=gwsORlhbQn1MpWheXJJx2w%3D%3D&grant_type=refresh_token&region=cn
+----
+
+*Request headers*
+
+|===
+|Name|Description
+
+|`Authorization`
+|Auth credentials,The format should be assigned 'Bearer refresh_token'
+
+|===
+
+*Request parameters*
+
+|===
+|Parameter|Description
+
+|`client_id`
+|Application ID issued by HuaMi when registered application
+
+|`client_secret`
+|Application Secret
+
+|`grant_type`
+|The grant_type parameter must be set to 'refresh_token'
+
+|`region`
+|cn/us
+
+|===
+
+*Example response*
+
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 617
+
+{"access_token":"TAQABAAAAAJ95lT4WrRdWtG3hog/0QvXTnUpL3FFxKOLBgm4JjIKJbSozXYxtltsQzBz0Z9PXDiIKBUOLMfjWX5Je6tGEdXLeaYeCEVS0dVYMWG+p+Y7avcVe0SWY4jITNGfuq/tlNLK9cACSkIW/L6Mnb9YNp4CzQDo7dU9WrxK87aOJ7gAlE4leZKeCM3+xLY3zRs3BGZEwrsCmEMqPr14rrD2KHny6aD2UvGQfXdVGVExe8jRbMLw2L2KdRWrxEW7vZRzXdw==","token_type":"Bearer","expires_in":43200,"refresh_token":"TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ=="}
+----
+
+*Response fields*
+
+|===
+|Path|Type|Description
+
+|`access_token`
+|`String`
+|Access token
+
+|`token_type`
+|`String`
+|Token type
+
+|`expires_in`
+|`Number`
+|Expire at some time stamp, UNIX time stamp(seconds)
+
+|`refresh_token`
+|`String`
+|Refresh token, used to refresh access token
+
+|===
+
+*CURL request*
+
+[source,bash]
+----
+$ curl 'https://account.huami.com/oauth2/refresh_token' -i -X POST -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' -d 'client_id=2882303761517363510&client_secret=gwsORlhbQn1MpWheXJJx2w%3D%3D&grant_type=refresh_token&region=cn'
+----
 
 == 4. Accessing Data
 
