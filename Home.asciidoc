@@ -1,4 +1,5 @@
 = Huami Web API Documents for Developers
+Huami Tech <develop@huami.com>
 :toc:
 :toclevels: 2
 :toc-placement!:
@@ -18,6 +19,7 @@ toc::[]
 === Obtaining User Consent and Tokens - Native Mobile App
 
 === Obtaining User Consent and Tokens - Web Site
+
 ==== Huami OAuth Error Code
 
 === Making Requests
