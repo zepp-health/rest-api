@@ -274,7 +274,7 @@ Content-Length: 617
 $ curl 'https://account.huami.com/oauth2/refresh_token' -i -X POST -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' -d 'client_id=2882303761517363510&client_secret=gwsORlhbQn1MpWheXJJx2w%3D%3D&grant_type=refresh_token'
 ----
 
-==== Token Life Cycle
+=== Token Life Cycle
 
 == 4. Accessing Data
 
