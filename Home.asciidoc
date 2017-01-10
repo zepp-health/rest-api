@@ -31,6 +31,26 @@ Redirect URIs are a critical part of the OAuth flow. After a user successfully a
 
 === Scopes
 
+|====
+|Scope|Description
+
+|profile
+|The profile scope is the basic user information
+
+|activity
+|The activity scope includes activity data, such as steps, distance, calories consumed, and active minutes
+
+|sleep
+|The sleep scope includes sleep logs and related sleep analysis, such as the sleep start time, wake time, the duration of sleep
+
+|heartrate
+|The heartrate scope includes the continuous heart rate data and related analysis
+
+|motion
+|The motion scope includes the active,sleep and related analysis data in minutes, every day has a data section, a section contains 1440(total minutes of one day)*3 bytes
+
+|====
+
 == 3. Authentication
 
 === Obtaining User Consent and Tokens (SDK for Native Mobile App)
