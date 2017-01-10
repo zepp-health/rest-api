@@ -57,6 +57,9 @@ Redirect URIs are a critical part of the OAuth flow. After a user successfully a
 
 === Obtaining User Consent and Tokens (API for Web Site)
 
+==== Authorization Code Grant Flow
+==== Implicit Grant Flow
+==== Authorization Page
 ==== Huami OAuth Error Code
 
 |====
