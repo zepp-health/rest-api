@@ -21,6 +21,11 @@ toc::[]
 
 == 1. Overview
 
+Welcome to the Huami API document.
+
+Huami is the second largest manufacturer of wearables in the world. Our mission is to seamlessly connect our biomechanical signals and daily activities with smart data services to promote an active and healthy lifestyle while making our lives easier. 
+
+We'd like to help developers build their own services by accessing user activity data tracked with our wearables (include Mi Band seris, Amazfit ARC / PACE / EQUATOR / MOONBEAM).
 == 2. App Registration
 
 Typically you need to provide information about an application such as:
