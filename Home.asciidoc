@@ -33,12 +33,14 @@ Typically you need to provide information about an application such as:
 
 . Application name
 . Logo (CDN) URLs for the application
+
   Logo should contain name, and there should be 1 logo per language, such as English, Chinese, Japanese, Korean, and so on. URLs should all be httpS. E.g.
   httpS://CDN/en.SVG
   httpS://CDN/zh.SVG
   Once registered, width/height ratio shouldn't be changed w/O coordination w/ HuaMi.
 
 . (CDN) URLs for users to obtain details of the application during authorization & admin
+
   There should be 1 URL per language, such as English, Chinese, Japanese, Korean, and so on. E.g.
   HTTPs://CDN/en.HTML
   HTTPs://CDN/zh.HTML
@@ -85,35 +87,56 @@ Unless ending w/ unencoded # or ?, # or ? will be appended. If URI contains unen
 
 Please redirect users to httpS://user.HuaMi.com/Oauth/index.html#/?login_hint=USER&client_id=3rdPARTY&state=BLACK_BOX&redirect_uri=1REGISTERed&token=TOKENs&scope=SCOPEs
 HTTP protocol should be strictly followed, including proper encoding of all the parameters:
+
 . USER
+
   Optional hint for Oauth providers such as Google/FaceBook/HuaMi to prompt for whose password if not logged in before or which to proceed if multiple accounts logged in before.
+  
 . 3rdPARTY
+
   Application id after registered @ HuaMi
+  
 . BLACK_BOX
+
   Anything you want to receive back from redirection
+
 . 1REGISTERed
+
   1 of the redirection URLs registered @ HuaMi
+  
 . token=TOKENs
+
   Can be "token=code" for Authorization Code to be exchanged for Access/Refresh Token(s) later.
   Can be "token=access" for Access Token.
   Can be "token=refresh" for Refresh Token.
   Can be "token=access&token=refresh" for both Access/Refresh Tokens.
+  
 . scope=SCOPEs
+
   Can be multiple "scope=SCOPE"s.
   Each SCOPE syntax is DATA+PROPERTY+PROPERTY@DEVICE@DEVICE,D9~17,D10~18
+  
   . DATA
+  
     Mandatary, profile/HourlySteps/DailySteps/HourlySleep/DailySleep/motion/HeartRate so far
+    
   . PROPERTY
+  
     Optional, can be multiple, for protected user data not to be authorized by default, e.g. "profile" property "weight" isn't included by default, 3rd party can ask for "weight" explicitly by specifying "scope=profile+weight"
+    
   . DEVICE
+  
     Optional, can be multiple, data @ all devices will be authorized if none specified. equator/MoonBeam/arc/pace so far
+    
   . D10~18
+  
     Optional, can be multiple, data @ all dates/times will be authorized if none specified.
     D for day, such as 'U' for sUnday, 'M' for Monday, 'T' for Tuesday, 'W' for Wendesday, 'h' for tHursday, 'F' for Friday, 'S' for Saturday.
     Time range is optional, data @ whole day will be authorized if none specified. E.g. 10~18 for 10am through 6pm, default starting time is 0 if unspecified & default ending time is 24 if unspecified
 
 User denying or failed authorization will also be redirected E.g. (see above for # or ? appending)
 httpS://REGISTERed#error=ERROR&state=BLACK_BOX
+
 (TongXing to list Account System errors & HaiDong to list Authorization Service errors)
 
 ==== Authorization Code Grant Flow
