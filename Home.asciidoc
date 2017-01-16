@@ -116,19 +116,19 @@ HTTP protocol should be strictly followed, including proper encoding of all the 
   Can be multiple "scope=SCOPE"s.
   Each SCOPE syntax is DATA+PROPERTY+PROPERTY@DEVICE@DEVICE,D9~17,D10~18
   
-  . DATA
+  .. DATA
   
     Mandatary, profile/HourlySteps/DailySteps/HourlySleep/DailySleep/motion/HeartRate so far
     
-  . PROPERTY
+  .. PROPERTY
   
     Optional, can be multiple, for protected user data not to be authorized by default, e.g. "profile" property "weight" isn't included by default, 3rd party can ask for "weight" explicitly by specifying "scope=profile+weight"
     
-  . DEVICE
+  .. DEVICE
   
     Optional, can be multiple, data @ all devices will be authorized if none specified. equator/MoonBeam/arc/pace so far
     
-  . D10~18
+  .. D10~18
   
     Optional, can be multiple, data @ all dates/times will be authorized if none specified.
     D for day, such as 'U' for sUnday, 'M' for Monday, 'T' for Tuesday, 'W' for Wendesday, 'h' for tHursday, 'F' for Friday, 'S' for Saturday.
