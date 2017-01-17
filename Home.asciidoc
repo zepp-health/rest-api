@@ -131,7 +131,16 @@ HTTP protocol should be strictly followed, including proper encoding of all the 
   .. D10~18
   
     Optional, can be multiple, data @ all dates/times will be authorized if none specified.
-    D for day, such as 'U' for sUnday, 'M' for Monday, 'T' for Tuesday, 'W' for Wendesday, 'h' for tHursday, 'F' for Friday, 'S' for Saturday.
+    D for day, such as
+    
+    ... lower case 's' for Sunday
+    ... 'M' for Monday
+    ... 'T' for Tuesday
+    ... 'W' for Wendesday
+    ... 't' for Thursday
+    ... 'F' for Friday
+    ... upper case 'S' for Saturday.
+    
     Time range is optional, data @ whole day will be authorized if none specified. E.g. 10~18 for 10am through 6pm, default starting time is 0 if unspecified & default ending time is 24 if unspecified
 
 User denying or failed authorization will also be redirected E.g. (see above for # or ? appending)
