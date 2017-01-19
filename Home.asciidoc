@@ -1,4 +1,4 @@
-= Huami Web API Documents for Developers **This is Duplicated, DO NOT UPDATE**
+= Huami Web API Documents for Developers. **This is Duplicated, DO NOT UPDATE**
 Huami Tech <develop@huami.com>
 :toc: left
 :toclevels: 4
