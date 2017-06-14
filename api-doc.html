@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_user">User</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -459,7 +459,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -548,14 +548,16 @@ Content-Length: 178
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/profile' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/profile' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_activity">Activity</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -576,17 +578,46 @@ Content-Length: 178
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/activities?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily&amp;startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/activities?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interval</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">daily/hourly</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>Example response</strong></p>
 </div>
@@ -673,14 +704,17 @@ Content-Length: 201
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/activities?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/activities?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_sleep">Sleep</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -701,17 +735,46 @@ Content-Length: 201
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sleep?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily&amp;startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sleep?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>interval</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">daily/hourly</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>Example response</strong></p>
 </div>
@@ -804,14 +867,17 @@ Content-Length: 223
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sleep?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sleep?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_heartrate">Heartrate</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -832,17 +898,42 @@ Content-Length: 223
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06&amp;startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>Example response</strong></p>
 </div>
@@ -911,14 +1002,17 @@ Content-Length: 135
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06?startDate=2016-08-05&amp;endDate=2016-08-06' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_motion_in_minutes">Motion in Minutes</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -939,17 +1033,42 @@ Content-Length: 135
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/motionInMinute?startDate=2016-08-05&amp;endDate=2016-08-06&amp;startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/motionInMinute?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>Example response</strong></p>
 </div>
@@ -1030,14 +1149,17 @@ Content-Length: 169
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/motionInMinute?startDate=2016-08-05&amp;endDate=2016-08-06?startDate=2016-08-05&amp;endDate=2016-08-06' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/motionInMinute?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_body">Body</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1058,11 +1180,11 @@ Content-Length: 169
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06&amp;startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
@@ -1070,13 +1192,38 @@ Host: api-open.huami.com</code></pre>
 </div>
 </div>
 <div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
 <p><strong>Example response</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 324
+Content-Length: 322
 
 {
   "items" : [ {
@@ -1085,7 +1232,7 @@ Content-Length: 324
     "bmi" : 50.2,
     "fatRate" : 25.2,
     "bodyWaterRate" : 0.66,
-    "boneWeight" : 55.5,
+    "boneMass" : 55.5,
     "metabolism" : 18.5,
     "muscleRate" : 21.5,
     "visceralFat" : 35.8,
@@ -1134,9 +1281,9 @@ Content-Length: 324
 <td class="tableblock halign-left valign-top"><p class="tableblock">height,unit centimeter</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].boneWeight</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].boneMass</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bone weight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bone mass</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].metabolism</code></p></td>
@@ -1185,14 +1332,17 @@ Content-Length: 324
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06?startDate=2016-08-05&amp;endDate=2016-08-06' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_run">Run</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1213,17 +1363,42 @@ Content-Length: 324
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/run?startDate=2016-08-05&amp;endDate=2016-08-06&amp;startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/run?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>Example response</strong></p>
 </div>
@@ -1316,14 +1491,17 @@ Content-Length: 247
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/run?startDate=2016-08-05&amp;endDate=2016-08-06?startDate=2016-08-05&amp;endDate=2016-08-06' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Accept: application/json' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/run?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_social">Social</h3>
 <div class="paragraph">
-<p><strong>Request structure</strong></p>
+<p><strong>Request headers</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1344,7 +1522,7 @@ Content-Length: 247
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request headers</strong></p>
+<p><strong>Example request</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1397,14 +1575,16 @@ Content-Length: 25
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/social' -i -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' -H 'Content-Type: application/json'</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/social' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Content-Type: application/json'</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-07 18:36:41 CST
+Last updated 2017-06-14 17:14:06 CST
 </div>
 </div>
 </body>
