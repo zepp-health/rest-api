@@ -476,7 +476,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 178
+Content-Length: 170
 
 {
   "userId" : "1000000084",
@@ -625,7 +625,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 201
+Content-Length: 191
 
 {
   "items" : [ {
@@ -685,7 +685,7 @@ Content-Length: 201
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].runDistance</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">run distance, unit meter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">run distance, unit meter, only when interval is daily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calories</code></p></td>
@@ -695,7 +695,7 @@ Content-Length: 201
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].hour</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hour of the data generated, e.g.1,2,3&#8230;&#8203;24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hour of the data generated, e.g.1,2,3&#8230;&#8203;24, only when interval is hourly</p></td>
 </tr>
 </tbody>
 </table>
@@ -782,7 +782,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 223
+Content-Length: 212
 
 {
   "items" : [ {
@@ -941,7 +941,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 135
+Content-Length: 128
 
 {
   "items" : [ {
@@ -1076,7 +1076,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 169
+Content-Length: 160
 
 {
   "items" : [ {
@@ -1223,7 +1223,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 322
+Content-Length: 307
 
 {
   "items" : [ {
@@ -1406,7 +1406,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 247
+Content-Length: 236
 
 {
   "items" : [ {
@@ -1539,10 +1539,11 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 25
+Content-Length: 48
 
 {
-  "friendCount" : 2
+  "followeeCount" : 1,
+  "followerCount" : 2
 }</code></pre>
 </div>
 </div>
@@ -1564,9 +1565,14 @@ Content-Length: 25
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>friendCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>followeeCount</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s tatal number of friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total number of followees</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>followerCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total number of followers, equals to followeeCount when use Mifit App</p></td>
 </tr>
 </tbody>
 </table>
@@ -1584,7 +1590,7 @@ Content-Length: 25
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-14 17:14:06 CST
+Last updated 2017-06-22 12:11:59 CST
 </div>
 </div>
 </body>
