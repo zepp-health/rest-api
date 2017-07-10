@@ -429,7 +429,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_heartrate">Heartrate</a></li>
 <li><a href="#_motion_in_minutes">Motion in Minutes</a></li>
 <li><a href="#_body">Body</a></li>
-<li><a href="#_run">Run</a></li>
+<li><a href="#_sport">Sport</a>
+<ul class="sectlevel3">
+<li><a href="#_sport_summary">Sport Summary</a></li>
+<li><a href="#_sport_detail">Sport Detail</a></li>
+</ul>
+</li>
 <li><a href="#_social">Social</a></li>
 </ul>
 </div>
@@ -494,14 +499,16 @@ Content-Length: 170
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -509,36 +516,43 @@ Content-Length: 170
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>userId</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s ID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>gender</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s gender 0:female 1:male</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>height</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s height, unit cm</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>weight</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s weight, unit kg</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>nickName</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s nickname</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>avatar</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s avatar</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>birthday</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s birthday e.g 1980-10</p></td>
 </tr>
 </tbody>
@@ -594,26 +608,31 @@ Host: api-open.huami.com</code></pre>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>interval</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">daily/hourly</p></td>
 </tr>
 </tbody>
@@ -645,14 +664,16 @@ Content-Length: 191
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -660,41 +681,49 @@ Content-Length: 191
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s activity data array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].date</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local date of the data generated, in the form of yyyy-MM-dd</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].lastSyncTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].steps</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Total steps</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].distance</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Total distance contain walk distance and run distance, unit meter</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].runDistance</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">run distance, unit meter, only when interval is daily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calories</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Calories burned, unit kcal</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].hour</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Hour of the data generated, e.g.1,2,3&#8230;&#8203;24, only when interval is hourly</p></td>
 </tr>
 </tbody>
@@ -751,26 +780,31 @@ Host: api-open.huami.com</code></pre>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>interval</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">daily/hourly</p></td>
 </tr>
 </tbody>
@@ -803,14 +837,16 @@ Content-Length: 212
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -818,46 +854,55 @@ Content-Length: 212
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s sleep data array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].date</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local date of the data generated, in the form of yyyy-MM-dd</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].lastSyncTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].deepSleepTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Deep sleep duration, unit min</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].shallowSleepTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Shallow sleep duration, unit min</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].wakeTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Awake duration during sleep, unit min</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].start</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start of the sleep. For amazfit devices, minute index (0-1439) of the day; for mifit devices, timestamp</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].stop</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End of the sleep. For amazfit devices, minute index (0-1439) of the day; for mifit devices, timestamp</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].mode</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sleep mode. 4 for shallow sleep state; 5 for deep sleep state; 7 for awake state</p></td>
 </tr>
 </tbody>
@@ -914,22 +959,26 @@ Host: api-open.huami.com</code></pre>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
 </tr>
 </tbody>
@@ -958,14 +1007,16 @@ Content-Length: 128
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -973,26 +1024,31 @@ Content-Length: 128
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s heart rate data array in minutes, every minute default is 0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].date</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local date of the data generated, in the form of yyyy-MM-dd</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].minute</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Minute index (0-1439) of the day</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].lastSyncTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].heartRateData</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The average heart rate at this minute, if didn&#8217;t wear the device or test the heartrate at this minute, the heart rate would be 0</p></td>
 </tr>
 </tbody>
@@ -1049,22 +1105,26 @@ Host: api-open.huami.com</code></pre>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
 </tr>
 </tbody>
@@ -1095,14 +1155,16 @@ Content-Length: 160
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -1110,36 +1172,43 @@ Content-Length: 160
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s activity/sleep motion data array in minutes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].date</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Local date of the data generated, in the form of yyyy-MM-dd</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].minute</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Minute index (0-1439) of the day</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].lastSyncTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].activeness</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Activeness vector of this minute</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].mode</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mode of this minute. 4 for deep sleep state; 5 for shallow sleep state; 7 for awake state</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].steps</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Total step count in this minute</p></td>
 </tr>
 </tbody>
@@ -1175,7 +1244,7 @@ Content-Length: 160
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials,The format should be assigned 'Bearer access_token'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials, The format should be assigned 'Bearer access_token'</p></td>
 </tr>
 </tbody>
 </table>
@@ -1196,23 +1265,27 @@ Host: api-open.huami.com</code></pre>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g. 2016-08-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g. 2016-08-05</p></td>
 </tr>
 </tbody>
 </table>
@@ -1248,14 +1321,16 @@ Content-Length: 307
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -1263,66 +1338,79 @@ Content-Length: 307
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s body data array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].timestamp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timestamp of the data generated</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].weight</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">weight,unit kg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weight, unit kg</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].height</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">height,unit centimeter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">height, unit centimeter</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].boneMass</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bone mass</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].metabolism</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metabolism</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].fatRate</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rate of fat</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].muscleRate</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rate of muscle</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].visceralFat</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">visceralFat</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].bodyWaterRate</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rate of body water</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].weightType</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">weight type: 0 nomarl;1 with baby;2 manual</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weight type: 0 nomarl, 1 with baby, 2 manual</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].impedance</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">impedance coefficient</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].bmi</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">body mass index</p></td>
 </tr>
 </tbody>
@@ -1340,7 +1428,9 @@ Content-Length: 307
 </div>
 </div>
 <div class="sect2">
-<h3 id="_run">Run</h3>
+<h3 id="_sport">Sport</h3>
+<div class="sect3">
+<h4 id="_sport_summary">Sport Summary</h4>
 <div class="paragraph">
 <p><strong>Request headers</strong></p>
 </div>
@@ -1358,7 +1448,7 @@ Content-Length: 307
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials,The format should be assigned 'Bearer access_token'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials, The format should be assigned 'Bearer access_token'</p></td>
 </tr>
 </tbody>
 </table>
@@ -1367,7 +1457,7 @@ Content-Length: 307
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/run?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
@@ -1379,23 +1469,32 @@ Host: api-open.huami.com</code></pre>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g. 2016-08-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g. 2016-08-05</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sportCategory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sport type: run, cycling; one category contains multiple type; required false, default query all category</p></td>
 </tr>
 </tbody>
 </table>
@@ -1406,7 +1505,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 236
+Content-Length: 264
 
 {
   "items" : [ {
@@ -1417,7 +1516,8 @@ Content-Length: 236
     "distance" : 3600.0,
     "calories" : 3.5,
     "averagePace" : 2.0,
-    "timestamp" : 1496744715
+    "timestamp" : 1496744715,
+    "type" : "OUTDOOR_RUN"
   } ]
 }</code></pre>
 </div>
@@ -1427,14 +1527,16 @@ Content-Length: 236
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -1442,46 +1544,61 @@ Content-Length: 236
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s run data array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].trackId</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">trackId</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].startTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start time timestamp</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].endTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">end time timestamp</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].runTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">run time,unit secend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">run time, unit secend</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].distance</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">run distance,unit meter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sport distance, unit meter</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calories</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">calorie,unit kcal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calorie, unit kcal</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].averagePace</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">average pace,unit meter/s</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sport type: OUTDOOR_RUN, WALKING, TRAILRUN, TREADMILL, OUTDOOR_CYCLING, ELLIPTICL</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].timestamp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timestamp</p></td>
 </tr>
 </tbody>
@@ -1491,10 +1608,228 @@ Content-Length: 236
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/run?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run' -i \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
     -H 'Accept: application/json' \
     -H 'Content-Type: application/json'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sport_detail">Sport Detail</h4>
+<div class="paragraph">
+<p><strong>Request headers</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials, The format should be assigned 'Bearer access_token'</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sportDetail?trackId=1492680712 HTTP/1.1
+Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
+Accept: application/json
+Content-Type: application/json
+Host: api-open.huami.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>trackId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sport trackId</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example response</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 1320
+
+{
+  "trackId" : "1492680712",
+  "startTime" : 1492680712,
+  "samplingTime" : "9;3;2;2;6;4;2;5;4;4;2;2;4;2;2;2;2;2;4;10;14;2;4;2;4;2;2;",
+  "latitudeLongitude" : "4004540672,11628061696;5722,-5340;7629,-3051;6484,3814;7247,4577;5722,3814;5722,6866;6103,7629;4959,6866;3051,7629;1907,6866;1144,9918;1144,9918;381,9918;3051,7629;-2288,8392;-3814,10681;-1907,8392",
+  "altitude" : "6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;6250;-2000000",
+  "accuracy" : "0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0",
+  "distance" : "2,0;4,8;4,8;4,8;4,10;2,5;4,11;4,9;4,8;4,6;4,7;4,9;4,8;4,9;4,7;4,8;4,10",
+  "pace" : "0.00;0.00;0.00;0.00;0.80;0.80;0.56;0.52;0.52;0.46;0.45;0.45;0.46;0.46;0.46;0.46;0.46;0.00",
+  "gait" : "2,0,71,0;2,0,0,0",
+  "speed" : "2,1.20;4,2.45;3,3.5",
+  "pause" : "1439383257, 555, 100, 123, 0;",
+  "heartRate" : "11,80;0,10;7,-6;4,1;3,1;3,1;9,-2;,-4;5,1;,1;6,-1;3,1;2,1;,1;3,-2;,-1;,-1;,-1;,-1;,1;,1;,1;,1;,1;4,1;2,1;,1;",
+  "airPressure" : "2,100131;2,5;2,1;2,-4;2,0;2,1;2,1;2,0;2,-1;2,-2;2,-1;2,2;2,-1;2,-1;2,-1;2,1;2,1;2,1;2,-3;2,-2;2,0;2,1;3,2;2,2;2,-2;2,-8;2,0;2,4;2,0;2,0;2,0;2,3;2,-1;2,0;",
+  "kilometerPace" : "0,263,wx4ey4yqd7zt,130,79,264;1,157,wx4ey4457nym,208,82,421",
+  "milePace" : "0,333,wx4ey49d61uq,165,80,334",
+  "lapPace" : "0,1024,1520,wx4ey4yqd7zt,89,82.5,10,5"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Response fields</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>trackId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trackId</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">run start epoch time, e.g. 1499156349</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>samplingTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">following sampling time: latitudeLongitude, altitude, accuracy, pace. format: {time interpolation;time interpolation;&#8230;&#8203;}, unit secend, the first time is interpolation with startTime, e.g. 9;3;2;2;6;4;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>latitudeLongitude</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">latitude and longitude list, format: {latitude interpolation,longitude interpolation;}, each value of the original latitude and longitude * 100000000 to do the interpolation. that is to keep the decimal point after 8, the first latitude/longitude is interpolation with 0, for aligning the data: the missing point with the empty string occupies the position. e.g. 4004663552,11629333504;16403,8392;;;;14877,8392;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>altitude</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">altitude list, format: {altitude;altitude;&#8230;&#8203;}, none-interpolation, unit centimeter, default value after 2016-08 is -2000000, before 2016-08 is 0. e.g. 7800;7772;7763;7763;-2000000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>accuracy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gps accuracy list, unit meter, e.g. 0;1;1;1;1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pace list, format: {pace;&#8230;&#8203;}, unit secend/meter, keep 2 decimal places, e.g. 0.33;0.33;0.25;0.26;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>distance</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">run distance list, format: {time interpolation(secend),distance interpolation(meter);&#8230;&#8203;}, e.g. 2,0;10,48;2,27;2,5;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gait</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gait list, format: {time difference(secend),step number difference,stride (cm), step frequency(not necessarily available);&#8230;&#8203;}, e.g. 2,0,71,0;2,0,0,0;147,1,0,0;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>speed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">speed list, format: {time interpolation(secend),speed(meter/secend)}, speed keep 2 decimal places, e.g. 2,1.20;4,2.45;3,3.5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pause</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pause list, format: {pause start time, pause end time interpolation, pause start index, pause stop index, pause type;}, pause type: 2 manual, 3 auto, e.g. 1439383257,555,100,123,2;&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>heartRate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">heartRate list, format: {time interpolation(secend), heart rate interpolation}, the first time is interpolation with startTime, if time interpolation is 1, there is an empty string, e.g. 11,80;0,10;7,-6;4,1;,-1;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>airPressure</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">air pressure list, format: {time interpolation(secend),air pressure interpolation (pa);}, default 0, e.g. 2,100131;2,5;2,1;2,-4;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kilometerPace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pace statistics per kilometer, format: {kilometer index, cost time (secend), geohash, point index, average heart rate, interpolation with start time(secend);..}, the kilometer index starts at 0, e.g. 0,365,wx4ey4yqd7zt,130,79,366;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>milePace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statistics per kilometer, format the same as kilometerPace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lapPace</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pace statistics during trail running, format: {lap index,cost time(secend),distance(meter),geohash,average heart rate,interpolation with start time(secend), absolute altitude(meter), altitude raise(meter), altitude increase(meter);}, the lap index starts at 0, altitude default value after 2016-08 is -2000000, before 2016-08 is 0</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>CURL request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sportDetail?trackId=1492680712' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json'</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1517,7 +1852,7 @@ Content-Length: 236
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials,The format should be assigned 'Bearer access_token'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials, The format should be assigned 'Bearer access_token'</p></td>
 </tr>
 </tbody>
 </table>
@@ -1552,14 +1887,16 @@ Content-Length: 48
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Path</th>
 <th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -1567,11 +1904,13 @@ Content-Length: 48
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>followeeCount</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total number of followees</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>followerCount</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total number of followers, equals to followeeCount when use Mifit App</p></td>
 </tr>
 </tbody>
@@ -1590,7 +1929,7 @@ Content-Length: 48
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-22 12:11:59 CST
+Last updated 2017-07-10 22:23:32 CST
 </div>
 </div>
 </body>
