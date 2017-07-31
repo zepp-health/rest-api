@@ -436,6 +436,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_social">Social</a></li>
+<li><a href="#_notify">Notify</a>
+<ul class="sectlevel3">
+<li><a href="#_send_notification">Send notification</a></li>
+<li><a href="#_query_notification">Query notification</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1457,7 +1463,7 @@ Content-Length: 307
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run&amp;timezone=GMT-8%3A00 HTTP/1.1
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Content-Type: application/json
@@ -1494,7 +1500,12 @@ Host: api-open.huami.com</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sportCategory</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sport type: run, cycling; one category contains multiple type; required false, default query all category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sport type: run, cycling; one category contains multiple type; it&#8217;s a optional param, default query all category</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timezone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timezone to parse date, support full name such as 'Asia/Shanghai' or custom timezone id such as 'GMT+8:00'. It&#8217;s a optional param, that default Asia/Shanghai for china, and UTC for other region</p></td>
 </tr>
 </tbody>
 </table>
@@ -1505,16 +1516,17 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 264
+Content-Length: 299
 
 {
   "items" : [ {
     "trackId" : "1496744715",
     "startTime" : 1496744715,
     "endTime" : 1496748315,
-    "runTime" : 1800,
+    "sportTime" : 1800,
     "distance" : 3600.0,
     "calories" : 3.5,
+    "location" : "wx4ey7nzj0sy",
     "averagePace" : 2.0,
     "timestamp" : 1496744715,
     "type" : "OUTDOOR_RUN"
@@ -1566,16 +1578,22 @@ Content-Length: 264
 <td class="tableblock halign-left valign-top"><p class="tableblock">end time timestamp</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].runTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].sportTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">run time, unit secend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sport time, unit secend</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].distance</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sport distance, unit meter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].location</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the first gps point of the sport geohash e.g. wx4ey7nzj0sy</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calories</code></p></td>
@@ -1608,7 +1626,7 @@ Content-Length: 264
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run' -i \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run&amp;timezone=GMT-8%3A00' -i \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
     -H 'Accept: application/json' \
     -H 'Content-Type: application/json'</code></pre>
@@ -1681,7 +1699,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1320
+Content-Length: 1114
 
 {
   "trackId" : "1492680712",
@@ -1692,11 +1710,9 @@ Content-Length: 1320
   "accuracy" : "0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0",
   "distance" : "2,0;4,8;4,8;4,8;4,10;2,5;4,11;4,9;4,8;4,6;4,7;4,9;4,8;4,9;4,7;4,8;4,10",
   "pace" : "0.00;0.00;0.00;0.00;0.80;0.80;0.56;0.52;0.52;0.46;0.45;0.45;0.46;0.46;0.46;0.46;0.46;0.00",
-  "gait" : "2,0,71,0;2,0,0,0",
   "speed" : "2,1.20;4,2.45;3,3.5",
   "pause" : "1439383257, 555, 100, 123, 0;",
   "heartRate" : "11,80;0,10;7,-6;4,1;3,1;3,1;9,-2;,-4;5,1;,1;6,-1;3,1;2,1;,1;3,-2;,-1;,-1;,-1;,-1;,1;,1;,1;,1;,1;4,1;2,1;,1;",
-  "airPressure" : "2,100131;2,5;2,1;2,-4;2,0;2,1;2,1;2,0;2,-1;2,-2;2,-1;2,2;2,-1;2,-1;2,-1;2,1;2,1;2,1;2,-3;2,-2;2,0;2,1;3,2;2,2;2,-2;2,-8;2,0;2,4;2,0;2,0;2,0;2,3;2,-1;2,0;",
   "kilometerPace" : "0,263,wx4ey4yqd7zt,130,79,264;1,157,wx4ey4457nym,208,82,421",
   "milePace" : "0,333,wx4ey49d61uq,165,80,334",
   "lapPace" : "0,1024,1520,wx4ey4yqd7zt,89,82.5,10,5"
@@ -1771,12 +1787,6 @@ Content-Length: 1320
 <td class="tableblock halign-left valign-top"><p class="tableblock">run distance list, format: {time interpolation(secend),distance interpolation(meter);&#8230;&#8203;}, e.g. 2,0;10,48;2,27;2,5;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gait</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">gait list, format: {time difference(secend),step number difference,stride (cm), step frequency(not necessarily available);&#8230;&#8203;}, e.g. 2,0,71,0;2,0,0,0;147,1,0,0;</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>speed</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
@@ -1793,12 +1803,6 @@ Content-Length: 1320
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">heartRate list, format: {time interpolation(secend), heart rate interpolation}, the first time is interpolation with startTime, if time interpolation is 1, there is an empty string, e.g. 11,80;0,10;7,-6;4,1;,-1;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>airPressure</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">air pressure list, format: {time interpolation(secend),air pressure interpolation (pa);}, default 0, e.g. 2,100131;2,5;2,1;2,-4;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>kilometerPace</code></p></td>
@@ -1926,10 +1930,517 @@ Content-Length: 48
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_notify">Notify</h3>
+<div class="sect3">
+<h4 id="_send_notification">Send notification</h4>
+<div class="paragraph">
+<p><strong>Request headers</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials,The format should be assigned 'Bearer access_token'</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /notifications HTTP/1.1
+Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
+Accept: application/json
+Content-Type: application/json
+Host: api-open.huami.com
+Content-Length: 414
+
+{
+  "messageId" : "ba2effb5-1c34-408b-bac7-875b1420d41f",
+  "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
+    "message" : {
+      "title" : "Title",
+      "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Request fields</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>messageId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message identifier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device notification effect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message showed in the device</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message.title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message title showed in the device, maximum support for 7 characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message.body</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message body (if device has the capability) showed in the device</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Icon showed in the device. The ability to specify icon when notifying user need special approval, contact the Huami business development (<a href="mailto:partner@huami.com">partner@huami.com</a>) for details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon.uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri to get the icon. In order to support different device screen size, the uri must support parameter w (width in pixel) and h (height in pixel) and return corresponding image. For example: <a href="https://example.com/images?name=icon&amp;w=19&amp;h=19" class="bare">https://example.com/images?name=icon&amp;w=19&amp;h=19</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device vibration behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig.mode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vibration mode, LIGHT/NORMAL/HEAVY are supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification deliver setting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.schedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When (cron expression see <a href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm" class="bare">https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm</a>) to trigger the notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to disable the scheduled notification</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example response</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted
+Content-Type: application/json;charset=UTF-8
+Content-Length: 434
+
+{
+  "messageId" : "ba2effb5-1c34-408b-bac7-875b1420d41f",
+  "state" : "SEND",
+  "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
+    "message" : {
+      "title" : "Title",
+      "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Response fields</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>messageId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message identifier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device notification effect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message showed in the device</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message.title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message title showed in the device, maximum support for 7 characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message.body</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message body (if device has the capability) showed in the device</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Icon showed in the device. The ability to specify icon when notifying user need special approval, contact the Huami business development (<a href="mailto:partner@huami.com">partner@huami.com</a>) for details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon.uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri to get the icon. In order to support different device screen size, the uri must support parameter w (width in pixel) and h (height in pixel) and return corresponding image. For example: <a href="https://example.com/images?name=icon&amp;w=19&amp;h=19" class="bare">https://example.com/images?name=icon&amp;w=19&amp;h=19</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device vibration behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig.mode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vibration mode, LIGHT/NORMAL/HEAVY are supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification deliver setting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.schedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When (cron expression see <a href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm" class="bare">https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm</a>) to trigger the notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to disable the scheduled notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>state</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message state</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>CURL request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/notifications' -i -X POST \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+  "messageId" : "ba2effb5-1c34-408b-bac7-875b1420d41f",
+  "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
+    "message" : {
+      "title" : "Title",
+      "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
+    }
+  }
+}'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_query_notification">Query notification</h4>
+<div class="paragraph">
+<p><strong>Request headers</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials,The format should be assigned 'Bearer access_token'</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /notifications/67c55f0b-fcae-46bd-8468-7b6ff8fbef0a HTTP/1.1
+Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
+Host: api-open.huami.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Path parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>messageId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message identifier</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example response</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 455
+
+{
+  "messageId" : "2b47a630-5443-4820-b850-19559ea40a6d",
+  "state" : "READ",
+  "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
+    "message" : {
+      "title" : "test device message title ",
+      "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Response fields</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>messageId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message identifier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device notification effect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message showed in the device</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message.title</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message title showed in the device, maximum support for 7 characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.message.body</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message body (if device has the capability) showed in the device</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Icon showed in the device. The ability to specify icon when notifying user need special approval, contact the Huami business development (<a href="mailto:partner@huami.com">partner@huami.com</a>) for details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon.uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri to get the icon. In order to support different device screen size, the uri must support parameter w (width in pixel) and h (height in pixel) and return corresponding image. For example: <a href="https://example.com/images?name=icon&amp;w=19&amp;h=19" class="bare">https://example.com/images?name=icon&amp;w=19&amp;h=19</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device vibration behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig.mode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vibration mode, LIGHT/NORMAL/HEAVY are supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification deliver setting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.schedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When (cron expression see <a href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm" class="bare">https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm</a>) to trigger the notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to disable the scheduled notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>state</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message state</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>CURL request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/notifications/67c55f0b-fcae-46bd-8468-7b6ff8fbef0a' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ=='</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-10 22:23:32 CST
+Last updated 2017-07-26 14:45:50 CST
 </div>
 </div>
 </body>
