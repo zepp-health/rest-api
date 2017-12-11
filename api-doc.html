@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
 <title>User</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -89,13 +89,12 @@ strong,b{font-weight:bold;line-height:inherit}
 small{font-size:60%;line-height:inherit}
 code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
 ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
-ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
 ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
 ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
-ul.no-bullet{list-style:none}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -131,7 +130,11 @@ strong strong{font-weight:400}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
-.menuseq,.menu{color:rgba(0,0,0,.8)}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
 b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
 b.button:before{content:"[";padding:0 3px 0 2px}
 b.button:after{content:"]";padding:0 2px 0 3px}
@@ -198,7 +201,7 @@ table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
 table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
 .admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
 .admonitionblock>table td.icon{text-align:center;width:80px}
-.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon img{max-width:initial}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
@@ -254,13 +257,13 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
-table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
-table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
-table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
-table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
-table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
-table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px 0}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
 table.frame-all{border-width:1px}
 table.frame-sides{border-width:0 1px}
 table.frame-topbot{border-width:1px 0}
@@ -281,10 +284,12 @@ ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
-ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
-ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -301,7 +306,8 @@ ol.lowergreek{list-style-type:lower-greek}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
-.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:first-of-type{padding:.4em .75em 0 .75em;line-height:1;vertical-align:top}
+.colist>table tr>td:first-of-type img{max-width:initial}
 .colist>table tr>td:last-of-type{padding:.25em 0}
 .thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
 .imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
@@ -364,6 +370,7 @@ div.unbreakable{page-break-inside:avoid}
 .yellow{color:#bfbf00}
 .yellow-background{background-color:#fafa00}
 span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
 .admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
 .admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
@@ -475,8 +482,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/profile HTTP/1.1
-Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Content-Type: application/json
+Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -487,7 +494,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 170
+Content-Length: 178
 
 {
   "userId" : "1000000084",
@@ -569,8 +576,8 @@ Content-Length: 170
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/profile' -i \
-    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ=='</code></pre>
 </div>
 </div>
 </div>
@@ -603,9 +610,9 @@ Content-Length: 170
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/activities?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -650,7 +657,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 191
+Content-Length: 201
 
 {
   "items" : [ {
@@ -740,9 +747,9 @@ Content-Length: 191
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/activities?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily' -i \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -775,9 +782,9 @@ Content-Length: 191
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sleep?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -822,7 +829,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 212
+Content-Length: 223
 
 {
   "items" : [ {
@@ -919,9 +926,9 @@ Content-Length: 212
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sleep?startDate=2016-08-05&amp;endDate=2016-08-06&amp;interval=daily' -i \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -953,10 +960,10 @@ Content-Length: 212
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06&amp;timezone=Asia%2FShanghai&amp;type=MANUAL HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -987,6 +994,16 @@ Host: api-open.huami.com</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timezone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timezone to parse date, support full name such as 'Asia/Shanghai' or custom timezone id such as 'GMT+8:00'. It&#8217;s a optional param, that default Asia/Shanghai for china, and UTC for other region</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Measure type: AUTO, MANUAL, ALL. default AUTO</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -996,14 +1013,16 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 128
+Content-Length: 195
 
 {
   "items" : [ {
     "date" : "2016-08-01",
     "minute" : 1,
     "lastSyncTime" : 1484729399,
-    "heartRateData" : 60
+    "heartRateData" : 60,
+    "timestamp" : 1484729199,
+    "measureType" : "AUTO"
   } ]
 }</code></pre>
 </div>
@@ -1048,14 +1067,26 @@ Content-Length: 128
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].lastSyncTime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend, only provide when type is AUTO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].timestamp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the heart data generated</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].heartRateData</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The average heart rate at this minute, if didn&#8217;t wear the device or test the heartrate at this minute, the heart rate would be 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The heart rate when measure when type is MANUAL, or average heart rate at this minute when type is AUTO. if didn&#8217;t wear the device or measure the heartrate at this minute, the heart rate would be 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].measureType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MeasureType: AUTO, MANUAL</p></td>
 </tr>
 </tbody>
 </table>
@@ -1064,10 +1095,10 @@ Content-Length: 128
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/heartrates?startDate=2016-08-05&amp;endDate=2016-08-06&amp;timezone=Asia%2FShanghai&amp;type=MANUAL' -i \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -1100,9 +1131,9 @@ Content-Length: 128
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/motionInMinute?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -1142,7 +1173,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 160
+Content-Length: 169
 
 {
   "items" : [ {
@@ -1225,9 +1256,9 @@ Content-Length: 160
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/motionInMinute?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -1259,10 +1290,10 @@ Content-Length: 160
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06&amp;timezone=GMT-8%3A00 HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -1293,6 +1324,11 @@ Host: api-open.huami.com</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g. 2016-08-05</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timezone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timezone to parse date, support full name such as 'Asia/Shanghai' or custom timezone id such as 'GMT+8:00'. It&#8217;s a optional param, that default Asia/Shanghai for china, and UTC for other region</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -1302,7 +1338,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 307
+Content-Length: 322
 
 {
   "items" : [ {
@@ -1426,10 +1462,10 @@ Content-Length: 307
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06' -i \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/body?startDate=2016-08-05&amp;endDate=2016-08-06&amp;timezone=GMT-8%3A00' -i \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -1464,9 +1500,9 @@ Content-Length: 307
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run&amp;timezone=GMT-8%3A00 HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -1516,7 +1552,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 354
+Content-Length: 576
 
 {
   "items" : [ {
@@ -1528,9 +1564,13 @@ Content-Length: 354
     "calories" : 3.5,
     "location" : "wx4ey7nzj0sy",
     "averagePace" : 2.0,
+    "averageStepFrequency" : 39,
+    "averageStrideLength" : 68,
     "timestamp" : 1496744715,
     "altitudeAscend" : 20,
     "altitudeDescend" : 10,
+    "device" : "AMAZFIT_SPORTS_WATCH",
+    "deviceName" : "{\"zh-CN\":\"Amazfit智能运动手表\",\"en-WW\":\"Amazfit Sports Watch\"}",
     "type" : "OUTDOOR_RUN"
   } ]
 }</code></pre>
@@ -1610,6 +1650,18 @@ Content-Length: 354
 <td class="tableblock halign-left valign-top"><p class="tableblock">average pace,unit meter/s</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].averageStepFrequency</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">average step frequency, unit step/mintute</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].averageStrideLength</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">average stride length, unit centimeter</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].altitudeAscend</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
@@ -1628,6 +1680,18 @@ Content-Length: 354
 <td class="tableblock halign-left valign-top"><p class="tableblock">sport type: OUTDOOR_RUN, WALKING, TRAILRUN, TREADMILL, OUTDOOR_CYCLING,INDOOR_CYCLING, ELLIPTICL</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].device</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">device type:MIFIT_APP, AMAZFIT_APP, AMAZFIT_SPORTS_WATCH, AMAZFIT_BIP, AMAZFIT_SPORTS_WATCH2, AMAZFIT_SPORTS_WATCH2S</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].deviceName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">multi-language deviceName, now support zh-CN and en-WW</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].timestamp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
@@ -1641,9 +1705,9 @@ Content-Length: 354
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sports?startDate=2016-08-05&amp;endDate=2016-08-06&amp;sportCategory=run&amp;timezone=GMT-8%3A00' -i \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -1675,10 +1739,10 @@ Content-Length: 354
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sportDetail?trackId=1492680712 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/sportDetail?trackId=1492680712&amp;device=AMAZIFT_WATCH HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -1704,6 +1768,11 @@ Host: api-open.huami.com</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sport trackId</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>device</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sport device</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -1713,7 +1782,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1114
+Content-Length: 1129
 
 {
   "trackId" : "1492680712",
@@ -1843,10 +1912,10 @@ Content-Length: 1114
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sportDetail?trackId=1492680712' -i \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/sportDetail?trackId=1492680712&amp;device=AMAZIFT_WATCH' -i \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Accept: application/json' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Accept: application/json'</code></pre>
 </div>
 </div>
 </div>
@@ -1880,8 +1949,8 @@ Content-Length: 1114
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/social HTTP/1.1
-Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Content-Type: application/json
+Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Host: api-open.huami.com</code></pre>
 </div>
 </div>
@@ -1892,7 +1961,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 48
+Content-Length: 51
 
 {
   "followeeCount" : 1,
@@ -1939,8 +2008,8 @@ Content-Length: 48
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/social' -i \
-    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
-    -H 'Content-Type: application/json'</code></pre>
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ=='</code></pre>
 </div>
 </div>
 </div>
@@ -1975,18 +2044,28 @@ Content-Length: 48
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /notifications HTTP/1.1
+Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
-Content-Type: application/json
 Host: api-open.huami.com
-Content-Length: 187
+Content-Length: 432
 
 {
-  "messageId" : "8e633e9d-9a1d-4473-a324-ccd418e4de38",
+  "messageId" : "976af189-a5fa-4bf4-8701-68bb249f40b1",
   "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
     "message" : {
       "title" : "Title",
       "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
     }
   }
 }</code></pre>
@@ -2041,6 +2120,48 @@ Content-Length: 187
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Message body (if device has the capability) showed in the device</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Icon showed in the device. The ability to specify icon when notifying user need special approval, contact the Huami business development (<a href="mailto:partner@huami.com">partner@huami.com</a>) for details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon.uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri to get the icon. In order to support different device screen size, the uri must support parameter w (width in pixel) and h (height in pixel) and return corresponding image. For example: <a href="https://example.com/images?name=icon&amp;w=19&amp;h=19" class="bare">https://example.com/images?name=icon&amp;w=19&amp;h=19</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device vibration behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig.mode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vibration mode, LIGHT/NORMAL/HEAVY are supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification deliver setting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.schedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When (cron expression see <a href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm" class="bare">https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm</a>) to trigger the notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to disable the scheduled notification</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -2050,15 +2171,25 @@ Content-Length: 187
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted
 Content-Type: application/json;charset=UTF-8
-Content-Length: 207
+Content-Length: 461
 
 {
-  "messageId" : "8e633e9d-9a1d-4473-a324-ccd418e4de38",
-  "state" : "SEND",
+  "messageId" : "976af189-a5fa-4bf4-8701-68bb249f40b1",
+  "state" : "MESSAGE_SEND",
   "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
     "message" : {
       "title" : "Title",
       "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
     }
   }
 }</code></pre>
@@ -2114,6 +2245,48 @@ Content-Length: 207
 <td class="tableblock halign-left valign-top"><p class="tableblock">Message body (if device has the capability) showed in the device</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Icon showed in the device. The ability to specify icon when notifying user need special approval, contact the Huami business development (<a href="mailto:partner@huami.com">partner@huami.com</a>) for details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon.uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri to get the icon. In order to support different device screen size, the uri must support parameter w (width in pixel) and h (height in pixel) and return corresponding image. For example: <a href="https://example.com/images?name=icon&amp;w=19&amp;h=19" class="bare">https://example.com/images?name=icon&amp;w=19&amp;h=19</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device vibration behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig.mode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vibration mode, LIGHT/NORMAL/HEAVY are supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification deliver setting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.schedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When (cron expression see <a href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm" class="bare">https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm</a>) to trigger the notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to disable the scheduled notification</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>state</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
@@ -2127,15 +2300,25 @@ Content-Length: 207
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/notifications' -i -X POST \
+    -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
     -H 'Accept: application/json' \
-    -H 'Content-Type: application/json' \
     -d '{
-  "messageId" : "8e633e9d-9a1d-4473-a324-ccd418e4de38",
+  "messageId" : "976af189-a5fa-4bf4-8701-68bb249f40b1",
   "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
     "message" : {
       "title" : "Title",
       "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
     }
   }
 }'</code></pre>
@@ -2203,15 +2386,25 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 228
+Content-Length: 482
 
 {
-  "messageId" : "a1a9adf1-b263-42ac-a8b0-09b140f9160c",
-  "state" : "READ",
+  "messageId" : "26064572-6581-4e54-9661-13a417cbe6a3",
+  "state" : "MESSAGE_SEND",
   "deviceNotificationEffect" : {
+    "vibrationConfig" : {
+      "mode" : "NORMAL"
+    },
     "message" : {
       "title" : "test device message title ",
       "body" : "test device message body"
+    },
+    "icon" : {
+      "uri" : "http://example.com/static-contents/test-icon.jpg"
+    },
+    "timer" : {
+      "schedule" : "0 0 12 * * ?",
+      "disabled" : false
     }
   }
 }</code></pre>
@@ -2267,6 +2460,48 @@ Content-Length: 228
 <td class="tableblock halign-left valign-top"><p class="tableblock">Message body (if device has the capability) showed in the device</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Icon showed in the device. The ability to specify icon when notifying user need special approval, contact the Huami business development (<a href="mailto:partner@huami.com">partner@huami.com</a>) for details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.icon.uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri to get the icon. In order to support different device screen size, the uri must support parameter w (width in pixel) and h (height in pixel) and return corresponding image. For example: <a href="https://example.com/images?name=icon&amp;w=19&amp;h=19" class="bare">https://example.com/images?name=icon&amp;w=19&amp;h=19</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting to control device vibration behavior</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.vibrationConfig.mode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vibration mode, LIGHT/NORMAL/HEAVY are supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification deliver setting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.schedule</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When (cron expression see <a href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm" class="bare">https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm</a>) to trigger the notification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deviceNotificationEffect.timer.disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to disable the scheduled notification</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>state</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
@@ -2288,7 +2523,7 @@ Content-Length: 228
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-10 17:22:22 CST
+Last updated 2017-12-11 09:48:59 CST
 </div>
 </div>
 </body>
