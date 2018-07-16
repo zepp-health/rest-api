@@ -436,6 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_heartrate">Heartrate</a></li>
 <li><a href="#_motion_in_minutes">Motion in Minutes</a></li>
 <li><a href="#_body">Body</a></li>
+<li><a href="#_device">Device</a></li>
 <li><a href="#_sport">Sport</a>
 <ul class="sectlevel3">
 <li><a href="#_sport_summary">Sport Summary</a></li>
@@ -494,7 +495,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 178
+Content-Length: 170
 
 {
   "userId" : "1000000084",
@@ -547,7 +548,7 @@ Content-Length: 178
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>weight</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s weight, unit kg</p></td>
 </tr>
 <tr>
@@ -657,7 +658,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 201
+Content-Length: 257
 
 {
   "items" : [ {
@@ -665,8 +666,11 @@ Content-Length: 201
     "lastSyncTime" : 1470038400,
     "steps" : 5000,
     "distance" : 4000,
+    "walkTime" : 60,
     "runDistance" : 2000,
+    "runTime" : 30,
     "calories" : 400,
+    "runCalories" : 200,
     "hour" : 4
   } ]
 }</code></pre>
@@ -724,14 +728,32 @@ Content-Length: 201
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].runDistance</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">run distance, unit meter, only when interval is daily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].runTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">run time, unit minute, only when interval is daily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].walkTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">walk time, unit minute, only when interval is daily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calories</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Calories burned, unit kcal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Calories burned, unit kcal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].runCalories</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run Calories burned, unit kcal, only when interval is daily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].hour</code></p></td>
@@ -829,7 +851,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 223
+Content-Length: 235
 
 {
   "items" : [ {
@@ -840,6 +862,7 @@ Content-Length: 223
     "wakeTime" : 0,
     "start" : -9,
     "stop" : 45,
+    "sleepScore" : 88,
     "mode" : 4
   } ]
 }</code></pre>
@@ -899,6 +922,12 @@ Content-Length: 223
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Awake duration during sleep, unit min</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].sleepScore</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SleepScore, range 0-100</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].start</code></p></td>
@@ -1013,7 +1042,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 195
+Content-Length: 186
 
 {
   "items" : [ {
@@ -1073,7 +1102,7 @@ Content-Length: 195
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].timestamp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the heart data generated</p></td>
 </tr>
 <tr>
@@ -1173,7 +1202,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 169
+Content-Length: 160
 
 {
   "items" : [ {
@@ -1240,7 +1269,7 @@ Content-Length: 169
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].mode</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mode of this minute. 4 for deep sleep state; 5 for shallow sleep state; 7 for awake state</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mode of this minute. 0 for silent(weared and no activities) state; 1 for walk state; 2 for run state; 3 for no ware sate; 4 for deep sleep state; 5 for shallow sleep state; 6 for charging state; 7 for awake state; 8 for onbed sleep; 9 for turn over state; 10 for micro activity state; 11 for start sleep state; 12 for start wake up state</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].steps</code></p></td>
@@ -1338,7 +1367,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 322
+Content-Length: 307
 
 {
   "items" : [ {
@@ -1470,6 +1499,145 @@ Content-Length: 322
 </div>
 </div>
 <div class="sect2">
+<h3 id="_device">Device</h3>
+<div class="paragraph">
+<p><strong>Request headers</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials, The format should be assigned 'Bearer access_token'</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/devices HTTP/1.1
+Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
+Accept: application/json
+Host: api-open.huami.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Request parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+</table>
+<div class="paragraph">
+<p><strong>Example response</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 194
+
+{
+  "items" : [ {
+    "deviceType" : "BAND",
+    "deviceName" : "BAND_2",
+    "deviceId" : "88EB0F0108001234",
+    "macAddress" : "0F:0F:0F:0F:0F:0F",
+    "lastDataSyncTime" : 1522637607
+  } ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Response fields</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s device data array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].deviceId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deviceId</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].macAddress</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">device mac address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].lastDataSyncTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">last sync data timestamp</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].deviceType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">device type: BAND, SCALE, SHOE, WATCH</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].deviceName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deviceName</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>CURL request</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/devices' -i \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_sport">Sport</h3>
 <div class="sect3">
 <h4 id="_sport_summary">Sport Summary</h4>
@@ -1536,7 +1704,7 @@ Host: api-open.huami.com</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sportCategory</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sport type: run, cycling; one category contains multiple type; it&#8217;s a optional param, default query all category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sport type: all, run, cycling; one category contains multiple type; it&#8217;s a optional param, default query run category. And you can also query multiple type, use ',' to split different type e.g. run,cycling</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>timezone</code></p></td>
@@ -1552,7 +1720,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 576
+Content-Length: 716
 
 {
   "items" : [ {
@@ -1560,15 +1728,21 @@ Content-Length: 576
     "startTime" : 1496744715,
     "endTime" : 1496748315,
     "sportTime" : 1800,
-    "distance" : 3600.0,
+    "distance" : 3600,
     "calories" : 3.5,
     "location" : "wx4ey7nzj0sy",
     "averagePace" : 2.0,
     "averageStepFrequency" : 39,
     "averageStrideLength" : 68,
     "timestamp" : 1496744715,
+    "averageHeartRate" : 90,
     "altitudeAscend" : 20,
     "altitudeDescend" : 10,
+    "secondHalfStartTime" : 600,
+    "strokeCount" : 30,
+    "foreHandCount" : 15,
+    "backHandCount" : 15,
+    "serveCount" : 30,
     "device" : "AMAZFIT_SPORTS_WATCH",
     "deviceName" : "{\"zh-CN\":\"Amazfit智能运动手表\",\"en-WW\":\"Amazfit Sports Watch\"}",
     "type" : "OUTDOOR_RUN"
@@ -1650,6 +1824,12 @@ Content-Length: 576
 <td class="tableblock halign-left valign-top"><p class="tableblock">average pace,unit meter/s</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].averageHeartRate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">average heartRate</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].averageStepFrequency</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
@@ -1674,10 +1854,40 @@ Content-Length: 576
 <td class="tableblock halign-left valign-top"><p class="tableblock">altitude descend during sport, unit meter</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].secondHalfStartTime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">second half start time, only provide when sport type is soccer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].strokeCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">strokes count, only provide when sport type is tennis</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].foreHandCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forehand count, only provide when sport type is tennis</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].backHandCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">backhand count, only provide when sport type is tennis</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].serveCount</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">serve count, only provide when sport type is tennis</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].type</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sport type: OUTDOOR_RUN, WALKING, TRAILRUN, TREADMILL, OUTDOOR_CYCLING,INDOOR_CYCLING, ELLIPTICL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sport type: OUTDOOR_RUN, DISTANCE_RUN, TIME_RUN, CALORIE_RUN, INTERVAL_RUN, WALKING, TRAILRUN, TREADMILL, OUTDOOR_CYCLING, INDOOR_CYCLING, SKIING, ELLIPTICL, MOUNTAINEER, INDOOR_SWIM, OPEN_WATER_SWIM, WORK_OUT, TENNIS, SOCCER, TRIATHLON, MULTI_SPORT</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].device</code></p></td>
@@ -1782,7 +1992,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1129
+Content-Length: 1145
 
 {
   "trackId" : "1492680712",
@@ -1793,6 +2003,7 @@ Content-Length: 1129
   "accuracy" : "0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0",
   "distance" : "2,0;4,8;4,8;4,8;4,10;2,5;4,11;4,9;4,8;4,6;4,7;4,9;4,8;4,9;4,7;4,8;4,10",
   "pace" : "0.00;0.00;0.00;0.00;0.80;0.80;0.56;0.52;0.52;0.46;0.45;0.45;0.46;0.46;0.46;0.46;0.46;0.00",
+  "gait" : "2,0,71,0;2,0,0,0",
   "speed" : "2,1.20;4,2.45;3,3.5",
   "pause" : "1439383257, 555, 100, 123, 0;",
   "heartRate" : "11,80;0,10;7,-6;4,1;3,1;3,1;9,-2;,-4;5,1;,1;6,-1;3,1;2,1;,1;3,-2;,-1;,-1;,-1;,-1;,1;,1;,1;,1;,1;4,1;2,1;,1;",
@@ -1862,6 +2073,12 @@ Content-Length: 1129
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pace list, format: {pace;&#8230;&#8203;}, unit secend/meter, keep 2 decimal places, e.g. 0.33;0.33;0.25;0.26;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gait</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gait list, format: {time difference(secend),step number difference,stride (cm), step frequency(not necessarily available);&#8230;&#8203;}, e.g. 2,0,71,0;2,0,0,0;147,1,0,0;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>distance</code></p></td>
@@ -1961,7 +2178,7 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 51
+Content-Length: 48
 
 {
   "followeeCount" : 1,
@@ -2048,10 +2265,10 @@ Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Host: api-open.huami.com
-Content-Length: 432
+Content-Length: 414
 
 {
-  "messageId" : "976af189-a5fa-4bf4-8701-68bb249f40b1",
+  "messageId" : "859ae69c-7ea5-4494-96c1-9406ff165700",
   "deviceNotificationEffect" : {
     "vibrationConfig" : {
       "mode" : "NORMAL"
@@ -2171,10 +2388,10 @@ Content-Length: 432
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted
 Content-Type: application/json;charset=UTF-8
-Content-Length: 461
+Content-Length: 442
 
 {
-  "messageId" : "976af189-a5fa-4bf4-8701-68bb249f40b1",
+  "messageId" : "859ae69c-7ea5-4494-96c1-9406ff165700",
   "state" : "MESSAGE_SEND",
   "deviceNotificationEffect" : {
     "vibrationConfig" : {
@@ -2304,7 +2521,7 @@ Content-Length: 461
     -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
     -H 'Accept: application/json' \
     -d '{
-  "messageId" : "976af189-a5fa-4bf4-8701-68bb249f40b1",
+  "messageId" : "859ae69c-7ea5-4494-96c1-9406ff165700",
   "deviceNotificationEffect" : {
     "vibrationConfig" : {
       "mode" : "NORMAL"
@@ -2386,10 +2603,10 @@ Host: api-open.huami.com</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 482
+Content-Length: 463
 
 {
-  "messageId" : "26064572-6581-4e54-9661-13a417cbe6a3",
+  "messageId" : "55ba5295-957e-4059-ab1a-385c0c2e4674",
   "state" : "MESSAGE_SEND",
   "deviceNotificationEffect" : {
     "vibrationConfig" : {
@@ -2523,7 +2740,7 @@ Content-Length: 482
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-11 09:48:59 CST
+Last updated 2018-07-16 13:10:39 CST
 </div>
 </div>
 </body>
