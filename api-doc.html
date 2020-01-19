@@ -2740,200 +2740,230 @@ Content-Length: 463
 </div>
 </div>
 <div class="sect2">
-    <h3 id="_paiSummary">PaiSummary</h3>
-    <div class="paragraph">
-      <p><strong>Request headers</strong></p>
-    </div>
-    <table class="tableblock frame-all grid-all spread">
-      <colgroup>
-        <col style="width: 50%;">
-        <col style="width: 50%;">
-      </colgroup>
-      <thead>
-      <tr>
-        <th class="tableblock halign-left valign-top">Name</th>
-        <th class="tableblock halign-left valign-top">Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials, The format should be assigned 'Bearer access_token'</p></td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="paragraph">
-      <p><strong>Example request</strong></p>
-    </div>
-    <div class="listingblock">
-      <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/openData/PaiSummary?startDate=2019-08-29&endDate=2019-11-29 HTTP/1.1
+  <h3 id="_paisummary">PaiSummary</h3>
+  <div class="paragraph">
+    <p><strong>Request headers</strong></p>
+  </div>
+  <table class="tableblock frame-all grid-all spread">
+    <colgroup>
+      <col style="width: 50%;">
+      <col style="width: 50%;">
+    </colgroup>
+    <thead>
+    <tr>
+      <th class="tableblock halign-left valign-top">Name</th>
+      <th class="tableblock halign-left valign-top">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials,The format should be assigned 'Bearer access_token'</p></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="paragraph">
+    <p><strong>Example request</strong></p>
+  </div>
+  <div class="listingblock">
+    <div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/openData/PaiSummary?startDate=2019-12-27&amp;endDate=2019-12-28 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
 Host: api-open.huami.com</code></pre>
-      </div>
-    </div>
-    <div class="paragraph">
-      <p><strong>Example response</strong></p>
-    </div>
-    <div class="listingblock">
-      <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 180
-
-{
-  "items" : [{
-      "calendarDay": "2019-08-29 +0000",
-      "userId": null,
-      "timestamp": 1567008000000,
-      "averageHeartRate": null,
-      "totalCal": "146",
-      "restHr": null,
-      "maxHr": null,
-      "totalPai": null,
-      "exerciseTimes": 6,
-      "dailyPai": null,
-      "totalStep": "5802",
-      "activityScores": [],
-      "nextActivityScores": []
-    },
-    {
-      "calendarDay": "2019-08-30 +0000",
-      "userId": null,
-      "timestamp": 1567094400000,
-      "averageHeartRate": null,
-      "totalCal": "149",
-      "restHr": null,
-      "maxHr": null,
-      "totalPai": null,
-      "exerciseTimes": 6,
-      "dailyPai": null,
-      "totalStep": "5514",
-      "activityScores": [],
-      "nextActivityScores": []
-    }]
-}</code></pre>
-      </div>
-    </div>
-    <div class="paragraph">
-      <p><strong>Response fields</strong></p>
-    </div>
-    <table class="tableblock frame-all grid-all spread">
-      <colgroup>
-        <col style="width: 25%;">
-        <col style="width: 25%;">
-        <col style="width: 25%;">
-        <col style="width: 25%;">
-      </colgroup>
-      <thead>
-      <tr>
-        <th class="tableblock halign-left valign-top">Path</th>
-        <th class="tableblock halign-left valign-top">Type</th>
-        <th class="tableblock halign-left valign-top">Optional</th>
-        <th class="tableblock halign-left valign-top">Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s body data array</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calendarDay</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">generate the date of PAI summary，e.g "2019-10-18"</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].userId</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">User’s ID</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].timestamp</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].averageHeartRate</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Average heart rate of the day</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].totalCal</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Total calories burned for the day</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].restHr</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">User's resting heart rate for the day</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].maxHr</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">User's maximum heart rate for the day</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].totalPai</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">All Pais acquired before the user's current sports week</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].exerciseTimes</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">User's daily exercise times</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].dailyPai</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Pai obtained by the user on the same day</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].totalStep</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Total steps of the user in the day</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].activityScores</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">User's pai in the past 7 days</p></td>
-      </tr>
-      <tr>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].nextActivityScores</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Pai of users in the next 7 days</p></td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="paragraph">
-      <p><strong>CURL request</strong></p>
-    </div>
-    <div class="listingblock">
-      <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl --location --request GET 'https://api-open.huami.com/users/-/openData/PaiSummary?startDate=2019-08-29&endDate=2019-11-29' \
---header 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \</code></pre>
-      </div>
     </div>
   </div>
+  <div class="paragraph">
+    <p><strong>Request parameters</strong></p>
+  </div>
+  <table class="tableblock frame-all grid-all spread">
+    <colgroup>
+      <col style="width: 33.3333%;">
+      <col style="width: 33.3333%;">
+      <col style="width: 33.3334%;">
+    </colgroup>
+    <thead>
+    <tr>
+      <th class="tableblock halign-left valign-top">Parameter</th>
+      <th class="tableblock halign-left valign-top">Optional</th>
+      <th class="tableblock halign-left valign-top">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="paragraph">
+    <p><strong>Example response</strong></p>
+  </div>
+  <div class="listingblock">
+    <div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 917
+
+{
+"items" : [ {
+  "calendarDay" : "2019-12-27 +0000",
+  "userId" : null,
+  "timestamp" : 1577376000000,
+  "averageHeartRate" : 81,
+  "totalCal" : "10",
+  "restHr" : 80,
+  "maxHr" : 194,
+  "totalPai" : 4.799841,
+  "exerciseTimes" : 1,
+  "dailyPai" : 17.860678,
+  "totalStep" : 608,
+  "activityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+  "nextActivityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}, {
+  "calendarDay" : "2019-12-28 +0000",
+  "userId" : null,
+  "timestamp" : 1577462400000,
+  "averageHeartRate" : 94,
+  "totalCal" : "25",
+  "restHr" : 80,
+  "maxHr" : 194,
+  "totalPai" : 4.799841,
+  "exerciseTimes" : 2,
+  "dailyPai" : 0.0,
+  "totalStep" : 1462,
+  "activityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+  "nextActivityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+} ]
+}</code></pre>
+    </div>
+  </div>
+  <div class="paragraph">
+    <p><strong>Response fields</strong></p>
+  </div>
+  <table class="tableblock frame-all grid-all spread">
+    <colgroup>
+      <col style="width: 25%;">
+      <col style="width: 25%;">
+      <col style="width: 25%;">
+      <col style="width: 25%;">
+    </colgroup>
+    <thead>
+    <tr>
+      <th class="tableblock halign-left valign-top">Path</th>
+      <th class="tableblock halign-left valign-top">Type</th>
+      <th class="tableblock halign-left valign-top">Optional</th>
+      <th class="tableblock halign-left valign-top">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s activity data array</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calendarDay</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">generate the date of PAI summary，e.g "2019-10-18"</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].userId</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Null</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">User’s ID</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].timestamp</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the data uploaded to huami backend</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].averageHeartRate</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Average heart rate of the day</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].totalCal</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Total calories burned for the day</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].restHr</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s resting heart rate for the day</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].maxHr</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s maximum heart rate for the day</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].totalPai</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">All Pais acquired before the user&#8217;s current sports week</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].exerciseTimes</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s daily exercise times</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].dailyPai</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Pai obtained by the user on the same day</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].totalStep</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Total steps of the user in the day</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].activityScores</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s pai in the past 7 days</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].nextActivityScores</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+      <td class="tableblock halign-left valign-top"><p class="tableblock">Pai of users in the next 7 days</p></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="paragraph">
+    <p><strong>CURL request</strong></p>
+  </div>
+  <div class="listingblock">
+    <div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/openData/PaiSummary?startDate=2019-12-27&amp;endDate=2019-12-28' -i \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+  -H 'Accept: application/json'</code></pre>
+    </div>
+  </div>
+</div>
 <div class="sect2">
-    <h3 id="_paiVo2max">PaiVo2max</h3>
+    <h3 id="_paivo2max">PaiVo2max</h3>
     <div class="paragraph">
       <p><strong>Request headers</strong></p>
     </div>
@@ -2951,7 +2981,7 @@ Content-Length: 180
       <tbody>
       <tr>
         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials, The format should be assigned 'Bearer access_token'</p></td>
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Auth credentials,The format should be assigned 'Bearer access_token'</p></td>
       </tr>
       </tbody>
     </table>
@@ -2960,7 +2990,7 @@ Content-Length: 180
     </div>
     <div class="listingblock">
       <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/openData/PaiVo2max?startDate=2019-11-11&endDate=2019-11-12' \
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /users/-/openData/PaiVo2max?startDate=2019-12-27&amp;endDate=2019-12-28 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==
 Accept: application/json
@@ -2968,35 +2998,63 @@ Host: api-open.huami.com</code></pre>
       </div>
     </div>
     <div class="paragraph">
+      <p><strong>Request parameters</strong></p>
+    </div>
+    <table class="tableblock frame-all grid-all spread">
+      <colgroup>
+        <col style="width: 33.3333%;">
+        <col style="width: 33.3333%;">
+        <col style="width: 33.3334%;">
+      </colgroup>
+      <thead>
+      <tr>
+        <th class="tableblock halign-left valign-top">Parameter</th>
+        <th class="tableblock halign-left valign-top">Optional</th>
+        <th class="tableblock halign-left valign-top">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>startDate</code></p></td>
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+        <td class="tableblock halign-left valign-top"><p class="tableblock">Start Date e.g.2016-08-01</p></td>
+      </tr>
+      <tr>
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>endDate</code></p></td>
+        <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+        <td class="tableblock halign-left valign-top"><p class="tableblock">End Date e.g.2016-08-05</p></td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="paragraph">
       <p><strong>Example response</strong></p>
     </div>
     <div class="listingblock">
       <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 180
+Content-Type: application/json;charset=ISO-8859-1
+Content-Length: 518
 
 {
-  "items" : [{
-        "userId": null,
-        "calendarDay": "2019-11-11 +0000",
-        "score": null,
-        "longTermScore": null,
-        "fitnessAge": null,
-        "modifiedAt": null,
-        "rating": null,
-        "source": null
-    },
-    {
-        "userId": null,
-        "calendarDay": "2019-11-12 +0000",
-        "score": null,
-        "longTermScore": null,
-        "fitnessAge": null,
-        "modifiedAt": null,
-        "rating": null,
-        "source": null
-    }]
+  "items" : [ {
+    "userId" : "1064246024",
+    "calendarDay" : "2019-12-27 +0000",
+    "score" : 35.0,
+    "longTermScore" : 35.0,
+    "fitnessAge" : 50.722546,
+    "modifiedAt" : 1577452194664,
+    "rating" : "belowAverage",
+    "source" : "PAI"
+  }, {
+    "userId" : "1064246024",
+    "calendarDay" : "2019-12-28 +0000",
+    "score" : 35.0,
+    "longTermScore" : 35.0,
+    "fitnessAge" : 50.722546,
+    "modifiedAt" : 1577452194664,
+    "rating" : "belowAverage",
+    "source" : "PAI"
+  } ]
 }</code></pre>
       </div>
     </div>
@@ -3023,7 +3081,7 @@ Content-Length: 180
         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items</code></p></td>
         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-        <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s body data array</p></td>
+        <td class="tableblock halign-left valign-top"><p class="tableblock">User&#8217;s activity data array</p></td>
       </tr>
       <tr>
         <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].calendarDay</code></p></td>
@@ -3080,15 +3138,17 @@ Content-Length: 180
     </div>
     <div class="listingblock">
       <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl --location --request GET 'https://api-open.huami.com/users/-/openData/PaiVo2max?startDate=2019-11-11&endDate=2019-11-12' \
---header 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'https://api-open.huami.com/users/-/openData/PaiVo2max?startDate=2019-12-27&amp;endDate=2019-12-28' -i \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer TAQEBAAAAAC7iIWnqI4uE6UgCUiBRg887o9H48QS3IhW5b8c4aJQtyn2ED73TeJKxhWhxVg5+e5lM8Gv5il9FWbQjG5rDKCVnLZ2VGxqrcj6pcAXrLmOQeTePl9dF507jX3awUjQ9RIi7PQhD5MzOlvNIciBhy6hrxU2u5pLt0uTWTJC36blvkwAmdZXQwIpxz2cJPfgTKWGGM1v4IT8uWkYRMWnvYUWOXoPvubp7MRRdVPyngtcbq3aAYCMMmbHilZs8x/jALQ==' \
+    -H 'Accept: application/json'</code></pre>
       </div>
     </div>
   </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-16 13:10:39 CST
+Last updated 2020-01-19 17:06:20 CST
 </div>
 </div>
 </body>
