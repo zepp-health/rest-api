@@ -947,7 +947,7 @@ Content-Length: 247
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].mode</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sleep mode. 4 for shallow sleep state; 5 for deep sleep state; 7 for awake state</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sleep mode. 4 for shallow sleep state; 5 for deep sleep state; 7 for awake state; 8 for REM (rapid eye movement) </p></td>
 </tr>
 </tbody>
 </table>
@@ -2826,7 +2826,16 @@ Content-Length: 917
     "dailyPai" : 17.860678,
     "totalStep" : 608,
     "activityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-    "nextActivityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+    "nextActivityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+    "highZonePai": 0.2,
+    "mediumZonePai": 1.766021728515625,
+    "lowZonePai": 0.9088058471679688,
+    "highZoneMinutes": 0,
+    "mediumZoneMinutes": 8,
+    "lowZoneMinutes": 61,
+    "highZoneLowerLimit": 150,
+    "mediumZoneLowerLimit": 113,
+    "lowZoneLowerLimit": 90
   }, {
     "calendarDay" : "2019-12-28 +0000",
     "userId" : null,
@@ -2840,7 +2849,16 @@ Content-Length: 917
     "dailyPai" : 0.0,
     "totalStep" : 1462,
     "activityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-    "nextActivityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+    "nextActivityScores" : [ 0.032886233, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+    "highZonePai": 0.4,
+    "mediumZonePai": 0.10752302408218384,
+    "lowZonePai": 0.6513692736625671,
+    "highZoneMinutes": 0,
+    "mediumZoneMinutes": 1,
+    "lowZoneMinutes": 102,
+    "highZoneLowerLimit": 154,
+    "mediumZoneLowerLimit": 115,
+    "lowZoneLowerLimit": 88
   } ]
 }</code></pre>
 </div>
