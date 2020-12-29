@@ -649,7 +649,7 @@ Host: api-open.huami.com</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>interval</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">daily/hourly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">daily/hourly(param hourly will be obsolete, not recommended)</p></td>
 </tr>
 </tbody>
 </table>
@@ -761,7 +761,7 @@ Content-Length: 270
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>items[].hour</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hour of the data generated, e.g.1,2,3&#8230;&#8203;24, only when interval is hourly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hour：Step number segment information (start and end time is not in hours), used to record data of the number of steps such as fast walking\slow walking\running, only when interval is hourly(Will be obsolete, not recommended)</p></td>
 </tr>
 </tbody>
 </table>
